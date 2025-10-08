@@ -35,13 +35,6 @@ const Skills: React.FC = () => {
     }
   ]
 
-  const proficiencyLevels = [
-    { level: "Básico", color: "bg-gray-300" },
-    { level: "Intermedio", color: "bg-blue-400" },
-    { level: "Avanzado", color: "bg-green-500" },
-    { level: "Experto", color: "bg-purple-600" }
-  ]
-
   return (
     <section id="skills" className="py-20 bg-white relative overflow-hidden">
       {/* Background Pattern */}
