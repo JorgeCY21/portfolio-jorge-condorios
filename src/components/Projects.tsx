@@ -5,37 +5,37 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "E-commerce Moderno",
-      description: "Una plataforma de comercio electrónico completa con carrito de compras, pasarela de pago y panel de administración.",
-      image: "/project1.jpg",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe"],
+      title: "Sistema de Gestión de Horarios - CEPRUNSA",
+      description: "Sistema web desarrollado para optimizar el manejo y gestión de horarios en CEPRUNSA. Mejoré la accesibilidad para docentes y monitores, recibiendo una carta de recomendación por mi contribución como Desarrollador Frontend.",
+      image: "/ceprunsa-project.jpg",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "APIs REST"],
       demoLink: "#",
       codeLink: "#"
     },
     {
       id: 2,
-      title: "App de Tareas",
-      description: "Aplicación para gestión de tareas con funcionalidades de arrastrar y soltar, categorías y recordatorios.",
-      image: "/project2.jpg",
-      technologies: ["React", "Firebase", "Tailwind CSS"],
+      title: "Portafolio Personal",
+      description: "Portafolio web moderno y responsive desarrollado con React, TypeScript y Tailwind CSS. Implementa mejores prácticas de desarrollo y diseño UX/UI.",
+      image: "/portfolio-project.jpg",
+      technologies: ["React", "TypeScript", "Tailwind CSS", "Vite"],
       demoLink: "#",
       codeLink: "#"
     },
     {
       id: 3,
-      title: "Dashboard Analytics",
-      description: "Panel de control interactivo para visualización de datos con gráficos y métricas en tiempo real.",
-      image: "/project3.jpg",
-      technologies: ["React", "D3.js", "Express", "PostgreSQL"],
+      title: "Sistema de Mapas Interactivos",
+      description: "Aplicación web con mapas interactivos utilizando OpenLayers. Implementa visualización de datos geoespaciales y herramientas de análisis.",
+      image: "/maps-project.jpg",
+      technologies: ["OpenLayers", "JavaScript", "HTML/CSS"],
       demoLink: "#",
       codeLink: "#"
     },
     {
       id: 4,
-      title: "Red Social",
-      description: "Plataforma de red social con funcionalidades de publicaciones, comentarios, likes y mensajes privados.",
-      image: "/project4.jpg",
-      technologies: ["React", "Socket.io", "MongoDB", "JWT"],
+      title: "API REST con Spring Boot",
+      description: "Backend robusto desarrollado con Spring Boot para gestión de datos. Implementa autenticación JWT y operaciones CRUD completas.",
+      image: "/spring-project.jpg",
+      technologies: ["Spring Boot", "Java", "MySQL", "JWT"],
       demoLink: "#",
       codeLink: "#"
     }
@@ -50,8 +50,7 @@ const Projects: React.FC = () => {
           {projects.map((project) => (
             <div key={project.id} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
               <div className="h-48 bg-gradient-to-r from-blue-400 to-purple-500 flex items-center justify-center">
-                {/* Imagen del proyecto */}
-                <span className="text-white font-medium">Imagen del Proyecto</span>
+                <span className="text-white font-medium">{project.title}</span>
               </div>
               
               <div className="p-6">
