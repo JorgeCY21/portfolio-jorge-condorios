@@ -1,11 +1,23 @@
+import Header from './components/Header'
+import Hero from './components/Hero'
+import About from './components/About'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
+import Contact from './components/Contact'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div className="h-screen flex items-center justify-center bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-600">
-        ✅ Tailwind 4 funcionando correctamente
-      </h1>
+    <div className="bg-gray-50 text-gray-800">
+      <Header />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Contact />
+      <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
