@@ -21,7 +21,7 @@ export interface SkillCategory {
 }
 
 export interface ContactInfo {
-  icon: ReactNode;  // ← Cambiado de JSX.Element a ReactNode
+  icon: ReactNode;  
   title: string;
   value: string;
   link: string;
@@ -30,7 +30,7 @@ export interface ContactInfo {
 export interface SocialLink {
   name: string;
   url: string;
-  icon: ReactNode;  // ← Cambiado de JSX.Element a ReactNode
+  icon: ReactNode;  
 }
 
 export interface FormData {

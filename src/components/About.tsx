@@ -15,7 +15,7 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 to-purple-500 rounded-2xl overflow-hidden shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-500">
                 <div className="w-full h-full bg-blue-200 flex items-center justify-center">
-                  <span className="text-white text-xl font-bold">Tu Foto Profesional</span>
+                  <img src="/oficial_photo.jpg" alt="Foto oficial"/>
                 </div>
               </div>
               <div className="absolute -bottom-6 -right-6 bg-yellow-400 text-gray-900 px-6 py-3 rounded-xl shadow-lg">

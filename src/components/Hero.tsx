@@ -61,9 +61,8 @@ const Hero: React.FC = () => {
                   <div className="w-full h-full flex items-center justify-center bg-slate-800/50">
                     <div className="text-center">
                       <div className="w-48 h-48 mx-auto bg-gradient-to-br from-cyan-500 to-blue-600 rounded-full overflow-hidden shadow-2xl mb-4 border-4 border-white/20">
-                        {/* Aquí va tu foto */}
                         <div className="w-full h-full bg-slate-700 flex items-center justify-center">
-                          <span className="text-white text-2xl font-bold">JC</span>
+                          <img src="/oficial_photo.jpg" alt="Foto oficial"/>
                         </div>
                       </div>
                       <p className="text-white font-semibold text-lg">Jorge Condorios</p>
