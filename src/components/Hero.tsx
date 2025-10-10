@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
                         </div>
                       </div>
                       <p className="text-white font-semibold text-lg">Jorge Condorios</p>
-                      <p className="text-cyan-300 text-sm">Desarrollador Frontend</p>
+                      <p className="text-cyan-300 text-sm">Desarrollador Full Stack</p>
                     </div>
                   </div>
                 </div>
