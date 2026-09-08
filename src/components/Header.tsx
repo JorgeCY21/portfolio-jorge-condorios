@@ -14,7 +14,8 @@ const Header: React.FC = () => {
 
   const navItems = [
     { name: 'Inicio', href: '#home' },
-    { name: 'Sobre Mí', href: '#about' },
+    { name: 'Sobre mí', href: '#about' },
+    { name: 'Experiencia', href: '#experience' },
     { name: 'Habilidades', href: '#skills' },
     { name: 'Certificaciones', href: '#certifications' },
     { name: 'Proyectos', href: '#projects' },
@@ -22,47 +23,58 @@ const Header: React.FC = () => {
   ]
 
   return (
-    <header 
+    <header
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-white/95 backdrop-blur-sm shadow-sm py-2' 
-          : 'bg-transparent py-4'
+        isScrolled
+          ? 'bg-white/95 backdrop-blur-sm border-b border-slate-200 py-3'
+          : 'bg-transparent py-5'
       }`}
     >
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex justify-between items-center">
-          <a 
-            href="#home" 
-            className={`text-2xl font-bold transition-colors duration-300 ${
-              isScrolled ? 'text-blue-600' : 'text-white'
+          <a
+            href="#home"
+            className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
+              isScrolled ? 'text-slate-900' : 'text-white'
             }`}
           >
             Jorge Condorios
           </a>
-          
+
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`font-medium transition-all duration-300 hover:scale-110 ${
-                  isScrolled 
-                    ? 'text-gray-700 hover:text-blue-600' 
-                    : 'text-white/90 hover:text-white'
+                className={`text-sm font-medium transition-colors duration-200 ${
+                  isScrolled
+                    ? 'text-slate-600 hover:text-indigo-600'
+                    : 'text-slate-200 hover:text-white'
                 }`}
               >
                 {item.name}
               </a>
             ))}
+            <a
+              href="mailto:jorgecondoriosy21@gmail.com"
+              className={`text-sm font-semibold px-4 py-2 rounded-lg transition-colors duration-200 ${
+                isScrolled
+                  ? 'bg-indigo-600 text-white hover:bg-indigo-500'
+                  : 'bg-white text-slate-900 hover:bg-slate-100'
+              }`}
+            >
+              Contactar
+            </a>
           </nav>
-          
+
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className={`md:hidden focus:outline-none transition-colors duration-300 ${
-              isScrolled ? 'text-gray-700' : 'text-white'
+              isScrolled ? 'text-slate-700' : 'text-white'
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Abrir menú"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
@@ -73,16 +85,16 @@ const Header: React.FC = () => {
             </svg>
           </button>
         </div>
-        
+
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 pb-4">
-            <nav className="flex flex-col space-y-4 bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-lg">
+          <div className="md:hidden mt-4 pb-2">
+            <nav className="flex flex-col space-y-1 bg-white rounded-xl p-3 shadow-lg border border-slate-200">
               {navItems.map((item) => (
                 <a
                   key={item.name}
                   href={item.href}
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-300 py-2"
+                  className="text-slate-700 hover:text-indigo-600 hover:bg-slate-50 font-medium rounded-lg px-3 py-2 transition-colors duration-200"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {item.name}

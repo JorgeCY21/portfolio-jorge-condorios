@@ -26,41 +26,36 @@ const Footer: React.FC = () => {
   ]
 
   return (
-    <footer className="bg-gray-800 text-white py-12">
+    <footer className="bg-slate-900 text-white py-10 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <a href="#home" className="text-2xl font-bold text-white">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="text-center md:text-left">
+            <a href="#home" className="text-lg font-bold text-white">
               Jorge Condorios
             </a>
-            <p className="mt-2 text-gray-400">
-              Estudiante de Ingeniería de Sistemas | Desarrollador Frontend
+            <p className="mt-1 text-slate-400 text-sm">
+              Estudiante de Ingeniería de Sistemas · Desarrollador Full Stack &amp; QA
             </p>
           </div>
-          
-          <div className="flex space-x-6 mb-6 md:mb-0">
+
+          <div className="flex space-x-4">
             {socialLinks.map((social, index) => (
               <a
                 key={index}
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors duration-300"
+                className="text-slate-400 hover:text-white transition-colors duration-200"
                 aria-label={social.name}
               >
                 {social.icon}
               </a>
             ))}
           </div>
-          
-          <div className="text-center md:text-right">
-            <p className="text-gray-400">
-              © {currentYear} Jorge Condorios. Todos los derechos reservados.
-            </p>
-            <p className="text-gray-400 mt-1">
-              Desarrollado con React + TypeScript + Tailwind CSS
-            </p>
-          </div>
+
+          <p className="text-slate-500 text-sm text-center md:text-right">
+            © {currentYear} Jorge Condorios
+          </p>
         </div>
       </div>
     </footer>

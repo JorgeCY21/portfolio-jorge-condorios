@@ -46,3 +46,12 @@ export interface NavItem {
   name: string;
   href: string;
 }
+
+export interface Experience {
+  id: number;
+  role: string;
+  company: string;
+  period: string;
+  highlights: string[];
+  current?: boolean;
+}

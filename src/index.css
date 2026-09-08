@@ -11,42 +11,38 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-3 px-6 rounded-xl transition-all duration-300 ease-out transform hover:-translate-y-1 hover:shadow-2xl shadow-lg;
+    @apply inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-500 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-200;
   }
-  
+
   .btn-secondary {
-    @apply bg-white/20 backdrop-blur-lg border border-white/30 text-white hover:bg-white/30 font-semibold py-3 px-6 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply inline-flex items-center justify-center gap-2 border border-white/25 text-white hover:bg-white/10 font-medium py-3 px-6 rounded-lg transition-colors duration-200;
   }
-  
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-slate-300 text-slate-700 hover:border-indigo-600 hover:text-indigo-600 font-medium py-3 px-6 rounded-lg transition-colors duration-200;
+  }
+
+  .section-eyebrow {
+    @apply text-sm font-semibold tracking-widest uppercase text-indigo-600 mb-3;
+  }
+
   .section-title {
-    @apply text-4xl md:text-5xl font-bold text-center mb-16 relative;
-    background: linear-gradient(135deg, #1e40af 0%, #7c3aed 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-  
-  .section-title::after {
-      content: '';
-      @apply absolute top-full left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full mt-4;
+    @apply text-3xl md:text-4xl font-bold text-slate-900 mb-4;
   }
 
-  .skill-card {
-    @apply bg-white p-4 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-gray-100;
+  .section-intro {
+    @apply text-slate-500 max-w-2xl mb-14 leading-relaxed;
   }
-  
-  .glass-effect {
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+
+  .card {
+    @apply bg-white rounded-xl border border-slate-200 transition-shadow duration-300 hover:shadow-md;
   }
-}
 
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-}
+  .chip {
+    @apply text-xs font-medium px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 border border-slate-200;
+  }
 
-.float-animation {
-  animation: float 3s ease-in-out infinite;
+  .stat-box {
+    @apply text-center p-4 rounded-lg border border-slate-200 bg-white;
+  }
 }
