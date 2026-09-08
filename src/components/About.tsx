@@ -14,20 +14,20 @@ const About: React.FC = () => {
             </div>
 
             <div className="grid grid-cols-2 gap-3 mt-6 max-w-xs mx-auto lg:mx-0">
-              <div className="stat-box">
-                <div className="text-lg font-bold text-indigo-600">Último</div>
+              <div className="stat-box border-t-2 border-t-indigo-500">
+                <div className="font-display text-lg font-bold text-indigo-600">Último</div>
                 <div className="text-xs text-slate-500">Semestre</div>
               </div>
-              <div className="stat-box">
-                <div className="text-lg font-bold text-indigo-600">2.º</div>
+              <div className="stat-box border-t-2 border-t-copper-500">
+                <div className="font-display text-lg font-bold text-copper-600">2.º</div>
                 <div className="text-xs text-slate-500">Puesto</div>
               </div>
-              <div className="stat-box">
-                <div className="text-lg font-bold text-indigo-600">2+</div>
+              <div className="stat-box border-t-2 border-t-emerald-500">
+                <div className="font-display text-lg font-bold text-emerald-600">2+</div>
                 <div className="text-xs text-slate-500">Años exp.</div>
               </div>
-              <div className="stat-box">
-                <div className="text-lg font-bold text-indigo-600">5</div>
+              <div className="stat-box border-t-2 border-t-violet-500">
+                <div className="font-display text-lg font-bold text-violet-600">5</div>
                 <div className="text-xs text-slate-500">Proyectos</div>
               </div>
             </div>
@@ -56,14 +56,24 @@ const About: React.FC = () => {
               </div>
 
               <div className="mt-8 grid sm:grid-cols-2 gap-4">
-                <div className="rounded-lg border border-slate-200 p-4">
-                  <p className="text-sm font-semibold text-slate-900 mb-1">Carta de recomendación</p>
+                <div className="rounded-lg border border-slate-200 border-l-2 border-l-copper-500 p-4 bg-copper-50/40">
+                  <div className="flex items-center gap-2 mb-1">
+                    <svg className="w-4 h-4 text-copper-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <p className="text-sm font-semibold text-slate-900">Carta de recomendación</p>
+                  </div>
                   <p className="text-sm text-slate-500">
                     Reconocimiento de CEPRUNSA por desempeño como desarrollador frontend en su sistema de gestión de horarios.
                   </p>
                 </div>
-                <div className="rounded-lg border border-slate-200 p-4">
-                  <p className="text-sm font-semibold text-slate-900 mb-1">Investigador acreditado UNSA</p>
+                <div className="rounded-lg border border-slate-200 border-l-2 border-l-indigo-500 p-4 bg-indigo-50/40">
+                  <div className="flex items-center gap-2 mb-1">
+                    <svg className="w-4 h-4 text-indigo-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                    </svg>
+                    <p className="text-sm font-semibold text-slate-900">Investigador acreditado UNSA</p>
+                  </div>
                   <p className="text-sm text-slate-500">
                     Acreditación institucional otorgada por la Universidad Nacional de San Agustín.
                   </p>

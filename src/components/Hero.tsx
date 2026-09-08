@@ -16,15 +16,20 @@ const Hero: React.FC = () => {
         }}
       />
 
+      {/* Accent glows */}
+      <div className="absolute top-0 right-0 w-[32rem] h-[32rem] bg-indigo-600/20 rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-copper-500/10 rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
+
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="flex flex-col md:flex-row items-center justify-between gap-16">
           <div className="md:w-3/5">
-            <span className="inline-block mb-6 text-xs font-semibold tracking-widest uppercase text-indigo-300 border border-indigo-400/30 bg-indigo-500/10 px-3 py-1.5 rounded-full">
+            <span className="inline-flex items-center gap-2 mb-6 text-xs font-semibold tracking-widest uppercase text-copper-300 border border-copper-400/30 bg-copper-500/10 px-3 py-1.5 rounded-full">
+              <span className="w-1.5 h-1.5 rounded-full bg-copper-400" />
               Becario PRONABEC · 2.º puesto académico
             </span>
 
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Jorge Condorios
+            <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
+              Jorge <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-copper-300">Condorios</span>
             </h1>
 
             <h2 className="text-xl md:text-2xl text-slate-300 mb-6 font-medium">
@@ -48,15 +53,15 @@ const Hero: React.FC = () => {
 
             <div className="grid grid-cols-3 gap-6 mt-14 max-w-md">
               <div>
-                <div className="text-2xl font-bold text-white">2.º</div>
+                <div className="font-display text-2xl font-bold text-indigo-300">2.º</div>
                 <div className="text-sm text-slate-400">Puesto académico</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">2+</div>
+                <div className="font-display text-2xl font-bold text-copper-300">2+</div>
                 <div className="text-sm text-slate-400">Años de experiencia</div>
               </div>
               <div>
-                <div className="text-2xl font-bold text-white">5</div>
+                <div className="font-display text-2xl font-bold text-emerald-300">5</div>
                 <div className="text-sm text-slate-400">Roles profesionales</div>
               </div>
             </div>
@@ -64,14 +69,15 @@ const Hero: React.FC = () => {
 
           <div className="md:w-2/5 flex justify-center">
             <div className="relative">
-              <div className="w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+              <div className="absolute -inset-3 bg-gradient-to-br from-indigo-500/30 to-copper-400/20 rounded-[2rem] blur-xl" />
+              <div className="relative w-64 h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                 <img
                   src="/oficial_photo.jpg"
                   alt="Jorge Condorios"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-5 -left-5 bg-white rounded-xl px-4 py-3 shadow-xl">
+              <div className="absolute -bottom-5 -left-5 bg-white rounded-xl px-4 py-3 shadow-xl border-l-2 border-copper-500">
                 <p className="text-slate-900 font-semibold text-sm">Ingeniería de Sistemas</p>
                 <p className="text-slate-500 text-xs">UNSA · Arequipa</p>
               </div>

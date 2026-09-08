@@ -1,6 +1,13 @@
 import React from 'react'
 import type { Project } from '../types'
 
+const palette = [
+  { bar: 'bg-indigo-600', badge: 'bg-indigo-50 text-indigo-600', label: 'text-indigo-600' },
+  { bar: 'bg-copper-500', badge: 'bg-copper-50 text-copper-600', label: 'text-copper-600' },
+  { bar: 'bg-emerald-500', badge: 'bg-emerald-50 text-emerald-600', label: 'text-emerald-600' },
+  { bar: 'bg-violet-500', badge: 'bg-violet-50 text-violet-600', label: 'text-violet-600' }
+]
+
 const initials = (title: string) =>
   title
     .split(' ')
@@ -82,14 +89,19 @@ const Projects: React.FC = () => {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} featured />
+          {featuredProjects.map((project, i) => (
+            <ProjectCard key={project.id} project={project} featured colors={palette[i % palette.length]} />
           ))}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {otherProjects.map((project) => (
-            <ProjectCard key={project.id} project={project} featured={false} />
+          {otherProjects.map((project, i) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              featured={false}
+              colors={palette[(i + featuredProjects.length) % palette.length]}
+            />
           ))}
         </div>
       </div>
@@ -100,19 +112,20 @@ const Projects: React.FC = () => {
 interface ProjectCardProps {
   project: Project
   featured: boolean
+  colors: { bar: string; badge: string; label: string }
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured }) => {
+const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured, colors }) => {
   return (
-    <div className={`card overflow-hidden flex flex-col ${featured ? 'border-indigo-200' : ''}`}>
-      <div className="h-2 bg-indigo-600 w-full" />
+    <div className="card overflow-hidden flex flex-col">
+      <div className={`h-1.5 ${colors.bar} w-full`} />
 
       <div className="p-6 flex flex-col flex-1">
         <div className="flex items-start justify-between mb-3">
-          <div className="w-10 h-10 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center font-bold text-sm">
+          <div className={`w-10 h-10 rounded-lg ${colors.badge} flex items-center justify-center font-bold text-sm font-display`}>
             {initials(project.title)}
           </div>
-          {featured && <span className="text-xs font-semibold text-indigo-600">Destacado</span>}
+          {featured && <span className={`text-xs font-semibold ${colors.label}`}>Destacado</span>}
         </div>
 
         <h3 className="text-lg font-semibold text-slate-900 mb-2 leading-snug">{project.title}</h3>
@@ -131,7 +144,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured }) => {
             href={project.demoLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 bg-indigo-600 hover:bg-indigo-500 text-white text-center text-sm font-medium py-2.5 px-4 rounded-lg transition-colors duration-200"
+            className={`flex-1 ${colors.bar} hover:opacity-90 text-white text-center text-sm font-medium py-2.5 px-4 rounded-lg transition-opacity duration-200`}
           >
             Demo
           </a>

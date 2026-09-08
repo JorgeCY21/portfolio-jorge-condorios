@@ -34,10 +34,11 @@ const Header: React.FC = () => {
         <div className="flex justify-between items-center">
           <a
             href="#home"
-            className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
+            className={`font-display flex items-center gap-2 text-lg font-bold tracking-tight transition-colors duration-300 ${
               isScrolled ? 'text-slate-900' : 'text-white'
             }`}
           >
+            <span className="w-2 h-2 rounded-full bg-copper-500" />
             Jorge Condorios
           </a>
 
