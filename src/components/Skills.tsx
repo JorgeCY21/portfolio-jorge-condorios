@@ -85,25 +85,25 @@ const Skills: React.FC = () => {
         </div>
 
         {/* Idiomas */}
-        <div className="card bg-gradient-to-br from-slate-900 to-slate-800 border-none p-8 max-w-2xl">
-          <h3 className="text-sm font-semibold tracking-wide uppercase text-copper-300 mb-6">Idiomas</h3>
+        <div className="card border-t-2 border-t-copper-500 p-8 max-w-2xl">
+          <h3 className="text-sm font-semibold tracking-wide uppercase text-slate-700 mb-6">Idiomas</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <div className="flex justify-between items-center mb-2">
-                <span className="font-medium text-white">Español</span>
-                <span className="text-xs font-semibold text-slate-400">Nativo</span>
+                <span className="font-medium text-slate-800">Español</span>
+                <span className="text-xs font-semibold text-slate-500">Nativo</span>
               </div>
-              <div className="w-full bg-white/10 rounded-full h-1.5">
-                <div className="bg-copper-400 h-1.5 rounded-full" style={{ width: '100%' }}></div>
+              <div className="w-full bg-slate-100 rounded-full h-1.5">
+                <div className="bg-copper-500 h-1.5 rounded-full" style={{ width: '100%' }}></div>
               </div>
             </div>
             <div>
               <div className="flex justify-between items-center mb-2">
-                <span className="font-medium text-white">Inglés</span>
-                <span className="text-xs font-semibold text-slate-400">Intermedio (B2)</span>
+                <span className="font-medium text-slate-800">Inglés</span>
+                <span className="text-xs font-semibold text-slate-500">Intermedio (B2)</span>
               </div>
-              <div className="w-full bg-white/10 rounded-full h-1.5">
-                <div className="bg-indigo-400 h-1.5 rounded-full" style={{ width: '70%' }}></div>
+              <div className="w-full bg-slate-100 rounded-full h-1.5">
+                <div className="bg-indigo-500 h-1.5 rounded-full" style={{ width: '70%' }}></div>
               </div>
             </div>
           </div>

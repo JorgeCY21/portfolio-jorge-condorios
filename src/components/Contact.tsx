@@ -18,9 +18,13 @@ const Contact: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Formulario enviado:', formData)
-    alert('¡Mensaje enviado! Te contactaré pronto.')
-    setFormData({ name: '', email: '', subject: '', message: '' })
+
+    const body = `${formData.message}\n\n—\n${formData.name} (${formData.email})`
+    const mailtoUrl = `mailto:jorgecondoriosy21@gmail.com?subject=${encodeURIComponent(
+      formData.subject
+    )}&body=${encodeURIComponent(body)}`
+
+    window.location.href = mailtoUrl
   }
 
   const contactInfo: ContactInfo[] = [
@@ -197,6 +201,9 @@ const Contact: React.FC = () => {
                 <button type="submit" className="btn-primary w-full py-3.5">
                   Enviar mensaje
                 </button>
+                <p className="text-xs text-slate-400 text-center -mt-2">
+                  Se abrirá tu cliente de correo con el mensaje ya redactado.
+                </p>
               </form>
             </div>
           </div>

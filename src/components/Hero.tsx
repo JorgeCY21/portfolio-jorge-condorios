@@ -29,7 +29,7 @@ const Hero: React.FC = () => {
             </span>
 
             <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Jorge <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-copper-300">Condorios</span>
+              Jorge <span className="text-copper-300">Condorios</span>
             </h1>
 
             <h2 className="text-xl md:text-2xl text-slate-300 mb-6 font-medium">
