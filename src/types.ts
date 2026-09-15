@@ -8,7 +8,9 @@ export interface Project {
   technologies: string[];
   demoLink: string;
   codeLink: string;
-  featured?: boolean; 
+  backendLink?: string;
+  note?: string;
+  featured?: boolean;
 }
 
 

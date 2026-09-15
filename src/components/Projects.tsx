@@ -26,8 +26,9 @@ const Projects: React.FC = () => {
         'Plataforma colaborativa para simular y optimizar operaciones de flotas de camiones en minería a tajo abierto. El backend integra un modelo de Machine Learning que predice el tiempo de ciclo camión-pala; desarrollé la lógica de asignación y gestión de camiones y palas, WebSockets en tiempo real, y el canvas de simulación y módulo constructor en el frontend.',
       image: '/smartmine-project.jpg',
       technologies: ['React', 'Vite', 'Python', 'FastAPI', 'Machine Learning', 'WebSockets'],
-      demoLink: 'https://smartmine-liard.vercel.app/',
-      codeLink: 'https://github.com/Geraldine04Umasi/smartmine-frontend',
+      demoLink: 'https://smartmine-frontend.vercel.app/',
+      codeLink: 'https://github.com/JorgeCY21/smartmine-frontend',
+      backendLink: 'https://github.com/JorgeCY21/smartmine-backend',
       featured: true
     },
     {
@@ -38,7 +39,8 @@ const Projects: React.FC = () => {
       image: '/apruebo-pe-project.jpg',
       technologies: ['React', 'TypeScript'],
       demoLink: 'https://apruebo-pe.vercel.app/',
-      codeLink: '#',
+      codeLink: 'https://github.com/JorgeCY21/AprueboPe',
+      note: 'Repositorio privado — disponible bajo solicitud',
       featured: true
     },
     {
@@ -48,7 +50,7 @@ const Projects: React.FC = () => {
         'Sistema web para optimizar la gestión de horarios del centro pre-universitario más importante de Arequipa. Mejoré la accesibilidad para docentes y monitores, recibiendo una carta de recomendación por mi contribución como desarrollador frontend.',
       image: '/ceprunsa-project.jpg',
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'APIs REST', 'Spring Boot'],
-      demoLink: '#',
+      demoLink: 'https://cepre-frontend.vercel.app/',
       codeLink: 'https://github.com/CeprHorario/cepre-frontend',
       featured: false
     },
@@ -175,7 +177,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured, colors }) 
         <h3 className="text-lg font-semibold text-slate-900 mb-2 leading-snug">{project.title}</h3>
         <p className="text-sm text-slate-500 mb-4 leading-relaxed flex-1">{project.description}</p>
 
-        <div className="flex flex-wrap gap-2 mb-5">
+        <div className="flex flex-wrap gap-2 mb-4">
           {project.technologies.map((tech, index) => (
             <span key={index} className="chip">
               {tech}
@@ -183,23 +185,46 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured, colors }) 
           ))}
         </div>
 
-        <div className="flex gap-3 pt-4 border-t border-slate-100">
+        {project.note && (
+          <p className="text-xs text-slate-400 italic mb-4">{project.note}</p>
+        )}
+
+        <div className="flex flex-wrap gap-3 pt-4 border-t border-slate-100">
           <a
             href={project.demoLink}
             target="_blank"
             rel="noopener noreferrer"
-            className={`flex-1 ${colors.bar} hover:opacity-90 text-white text-center text-sm font-medium py-2.5 px-4 rounded-lg transition-opacity duration-200`}
+            className={`flex-1 min-w-[100px] ${colors.bar} hover:opacity-90 text-white text-center text-sm font-medium py-2.5 px-4 rounded-lg transition-opacity duration-200 inline-flex items-center justify-center gap-1.5`}
           >
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
             Demo
           </a>
           <a
             href={project.codeLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 border border-slate-200 text-slate-700 hover:border-indigo-600 hover:text-indigo-600 text-center text-sm font-medium py-2.5 px-4 rounded-lg transition-colors duration-200"
+            className="flex-1 min-w-[100px] border border-slate-200 text-slate-700 hover:border-indigo-600 hover:text-indigo-600 text-center text-sm font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 inline-flex items-center justify-center gap-1.5"
           >
-            Código
+            <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+            </svg>
+            {project.backendLink ? 'Frontend' : 'Código'}
           </a>
+          {project.backendLink && (
+            <a
+              href={project.backendLink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 min-w-[100px] border border-slate-200 text-slate-700 hover:border-indigo-600 hover:text-indigo-600 text-center text-sm font-medium py-2.5 px-4 rounded-lg transition-colors duration-200 inline-flex items-center justify-center gap-1.5"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+              </svg>
+              Backend
+            </a>
+          )}
         </div>
       </div>
     </div>
