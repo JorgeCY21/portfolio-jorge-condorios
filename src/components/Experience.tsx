@@ -92,7 +92,7 @@ const Experience: React.FC = () => {
                       {exp.role} <span className="text-slate-400 font-normal font-sans">— {exp.company}</span>
                       {exp.current && (
                         <span className="ml-2 align-middle text-[10px] font-sans font-bold uppercase tracking-wide text-copper-700 bg-copper-100 px-2 py-0.5 rounded-full">
-                          Actual
+                          Más reciente
                         </span>
                       )}
                     </h3>

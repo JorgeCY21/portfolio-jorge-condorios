@@ -78,6 +78,28 @@ const About: React.FC = () => {
                     Acreditación institucional otorgada por la Universidad Nacional de San Agustín.
                   </p>
                 </div>
+                <div className="rounded-lg border border-slate-200 border-l-2 border-l-emerald-500 p-4 bg-emerald-50/40">
+                  <div className="flex items-center gap-2 mb-1">
+                    <svg className="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9m9 9c0-4.97-4.03-9-9-9m9 9c0 4.97-4.03 9-9 9m0-18a9 9 0 000 18" />
+                    </svg>
+                    <p className="text-sm font-semibold text-slate-900">Beca UNSA — TICAL 2025</p>
+                  </div>
+                  <p className="text-sm text-slate-500">
+                    Beca institucional para participar en la conferencia internacional de RedCLARA en Costa Rica.
+                  </p>
+                </div>
+                <div className="rounded-lg border border-slate-200 border-l-2 border-l-violet-500 p-4 bg-violet-50/40">
+                  <div className="flex items-center gap-2 mb-1">
+                    <svg className="w-4 h-4 text-violet-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 21c-4.97 0-9-4.03-9-9s4.03-9 9-9m9 9c0-4.97-4.03-9-9-9m9 9c0 4.97-4.03 9-9 9m0-18a9 9 0 000 18" />
+                    </svg>
+                    <p className="text-sm font-semibold text-slate-900">Beca UNSA — AFIDE 2026</p>
+                  </div>
+                  <p className="text-sm text-slate-500">
+                    Beca institucional para participar en el congreso internacional de innovación en Panamá.
+                  </p>
+                </div>
               </div>
             </div>
           </div>

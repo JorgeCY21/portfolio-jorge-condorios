@@ -51,7 +51,7 @@ const Certifications: React.FC = () => {
       id: 2,
       institution: 'Cisco Networking Academy',
       course: 'Ciberseguridad y Redes',
-      detail: 'Introducción a ciberseguridad, redes, defensa de redes y hacking ético',
+      detail: 'Ruta de 7 módulos: introducción a ciberseguridad, redes, dispositivos, terminales, gestión de amenazas, defensa de redes y hacking ético',
       year: '2026',
       featured: true
     },
@@ -61,6 +61,14 @@ const Certifications: React.FC = () => {
       course: 'Ruta de LLMs e Inteligencia Artificial a Profundidad',
       detail: 'Formación de 9 semanas',
       year: '2025',
+      featured: true
+    },
+    {
+      id: 13,
+      institution: 'Centro Cultural Peruano Norteamericano',
+      course: 'Advanced English Program (CEFR B2) — Con Honores',
+      detail: '240 horas',
+      year: '2021',
       featured: true
     },
     {
@@ -116,18 +124,58 @@ const Certifications: React.FC = () => {
       institution: 'INFOUNSA',
       course: 'Microsoft Excel Avanzado',
       year: '2023'
+    },
+    {
+      id: 14,
+      institution: 'INFOUNSA',
+      course: 'Ensamblaje y Mantenimiento de Computadoras',
+      year: '2023'
+    },
+    {
+      id: 15,
+      institution: 'Código Facilito',
+      course: 'Curso de Kotlin',
+      year: '2025'
+    },
+    {
+      id: 16,
+      institution: 'Código Facilito',
+      course: 'Curso de GitHub Copilot',
+      year: '2025'
+    },
+    {
+      id: 17,
+      institution: 'Código Facilito',
+      course: 'Curso de Metodologías para Solución de Problemas',
+      year: '2025'
+    },
+    {
+      id: 18,
+      institution: 'Platzi',
+      course: 'Curso Práctico de Frontend Developer',
+      year: '2022'
+    },
+    {
+      id: 19,
+      institution: 'Platzi',
+      course: 'Curso de Frontend Developer',
+      year: '2022'
     }
   ]
 
   const congresses: CongressItem[] = [
     { id: 1, title: 'Convención Peruana de Ingeniería — PERUMEC 2026', organizer: 'ASME Perú Section / ENGIETEK · Cusco', year: '2026' },
-    { id: 2, title: 'V Congreso Internacional de Ingeniería de Sistemas — CIIS 2025', organizer: '30 horas académicas', year: '2025' },
+    { id: 9, title: 'Talent & Skills Volunteer Week', organizer: 'Charlas de ciberseguridad, productividad y marca personal', year: '2025' },
+    { id: 10, title: 'CI-EXPLORA II Edición — Proyectos y Transformación Digital para la Ingeniería Inteligente', organizer: 'UNSA', year: '2025' },
+    { id: 5, title: 'CI-EXPLORA II Edición — Liderazgo Humano y Competencias para la Ingeniería 5.0', organizer: 'UNSA', year: '2025' },
+    { id: 11, title: 'Perú Hub Digital Universitario: Lidera el Cambio', organizer: '18 horas académicas', year: '2025' },
     { id: 3, title: 'VI Edición Hack4Edu — Hackatón Internacional', organizer: 'Fundación ProFuturo / Universidad Pontificia de Salamanca', year: '2025' },
     { id: 4, title: 'Hack4Edu UNSA 2025', organizer: 'Soluciones tecnológicas para procesos educativos', year: '2025' },
-    { id: 5, title: 'CI-EXPLORA II Edición — Liderazgo Humano y Competencias para la Ingeniería 5.0', organizer: 'UNSA', year: '2025' },
-    { id: 6, title: 'CI-EXPLORA II Edición — Proyectos y Transformación Digital para la Ingeniería Inteligente', organizer: 'UNSA', year: '2025' },
+    { id: 2, title: 'V Congreso Internacional de Ingeniería de Sistemas — CIIS 2025', organizer: '30 horas académicas', year: '2025' },
+    { id: 12, title: 'TICAL 2025', organizer: 'RedCLARA · Costa Rica · Beca UNSA', year: '2025' },
     { id: 7, title: 'IV Congreso Internacional de Ingeniería de Sistemas — CIIS 2024', organizer: '40 horas académicas', year: '2024' },
-    { id: 8, title: 'Primer Congreso Nacional de Semilleros de Investigación — CONASEIN', organizer: 'CONCYTEC', year: '2023' }
+    { id: 8, title: 'Primer Congreso Nacional de Semilleros de Investigación — CONASEIN', organizer: 'CONCYTEC', year: '2023' },
+    { id: 13, title: 'Semana Capitular de Ingeniería de Sistemas e Informática', organizer: 'Colegio de Ingenieros del Perú', year: '2022' }
   ]
 
   const featured = certifications.filter((c) => c.featured)

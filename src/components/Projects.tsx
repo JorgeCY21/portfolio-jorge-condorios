@@ -21,6 +21,28 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: 'SmartMine AI — Simulación y Optimización de Flotas Mineras con IA',
+      description:
+        'Plataforma colaborativa para simular y optimizar operaciones de flotas de camiones en minería a tajo abierto. El backend integra un modelo de Machine Learning que predice el tiempo de ciclo camión-pala; desarrollé la lógica de asignación y gestión de camiones y palas, WebSockets en tiempo real, y el canvas de simulación y módulo constructor en el frontend.',
+      image: '/smartmine-project.jpg',
+      technologies: ['React', 'Vite', 'Python', 'FastAPI', 'Machine Learning', 'WebSockets'],
+      demoLink: 'https://smartmine-liard.vercel.app/',
+      codeLink: 'https://github.com/Geraldine04Umasi/smartmine-frontend',
+      featured: true
+    },
+    {
+      id: 2,
+      title: 'Apruebo PE — Plataforma de Gestión Académica Universitaria',
+      description:
+        'Aplicación web para el seguimiento académico de estudiantes de la UNSA, con usuarios reales activos. Carga automáticamente la malla curricular al seleccionar carrera y año de ingreso: dashboard, notas por curso, apuntes, gráficos de rendimiento, simulador de notas, referidos, reportes e importación de libreta.',
+      image: '/apruebo-pe-project.jpg',
+      technologies: ['React', 'TypeScript'],
+      demoLink: 'https://apruebo-pe.vercel.app/',
+      codeLink: '#',
+      featured: true
+    },
+    {
+      id: 3,
       title: 'CEPRUNSA — Sistema de Gestión de Horarios',
       description:
         'Sistema web para optimizar la gestión de horarios del centro pre-universitario más importante de Arequipa. Mejoré la accesibilidad para docentes y monitores, recibiendo una carta de recomendación por mi contribución como desarrollador frontend.',
@@ -28,10 +50,10 @@ const Projects: React.FC = () => {
       technologies: ['React', 'TypeScript', 'Tailwind CSS', 'APIs REST', 'Spring Boot'],
       demoLink: '#',
       codeLink: 'https://github.com/CeprHorario/cepre-frontend',
-      featured: true
+      featured: false
     },
     {
-      id: 2,
+      id: 4,
       title: 'Pacha Wayra — Planificador de Viajes Turísticos',
       description:
         'Aplicación web desarrollada para NASA Space Apps Challenge para planificar viajes por Perú: información por región, top 10 lugares turísticos por ciudad, recomendaciones según clima y exportación de itinerarios en PDF.',
@@ -39,10 +61,32 @@ const Projects: React.FC = () => {
       technologies: ['React', 'JavaScript', 'CSS', 'Exportación PDF', 'NASA API'],
       demoLink: 'https://pacha-wayra-official.vercel.app/',
       codeLink: 'https://github.com/JorgeCY21/pacha-wayra',
-      featured: true
+      featured: false
     },
     {
-      id: 3,
+      id: 5,
+      title: 'Rehabi — Rehabilitación con Kinect v2 y Avatares Generados con IA',
+      description:
+        'Videojuego de rehabilitación física (equilibrio monopodal) en Unity, con seguimiento de movimiento en tiempo real vía Kinect v2 y avatares personalizados generados con IA a partir de una foto del paciente. Diseñé el pipeline completo: app web de generación 3D (Meshy AI), importación automática a Unity vía Editor scripting en C#, y detección de postura desde los joints del Kinect.',
+      image: '/rehabi-project.jpg',
+      technologies: ['Unity', 'C#', 'Kinect v2', 'React', 'Vite', 'Meshy AI'],
+      demoLink: '#',
+      codeLink: '#',
+      featured: false
+    },
+    {
+      id: 6,
+      title: 'Sistema de Gestión Académica de Maestrías — Centro de Postgrado UNSA',
+      description:
+        'Sistema de gestión académica para el Centro de Postgrado de la UNSA (Maestría en Informática): docentes, estudiantes, cursos, matrículas, notas, pensiones, pagos y vouchers. Me encargué de metodologías ágiles, pruebas automatizadas e integración continua y despliegue (CI/CD), incluyendo workflows de mirror a GitLab y control de flujo de ramas.',
+      image: '/gestion-maestrias-project.jpg',
+      technologies: ['React', 'Java 25', 'Spring Boot', 'PostgreSQL', 'CI/CD'],
+      demoLink: 'https://gestion-maestrias-front.vercel.app/login',
+      codeLink: 'https://github.com/YeyderJHJL/gestion-maestrias-front',
+      featured: false
+    },
+    {
+      id: 7,
       title: 'Sistema de Votación Distribuida',
       description:
         'Plataforma web para votaciones electrónicas con arquitectura de sistemas distribuidos, orientada a garantizar seguridad, transparencia y escalabilidad en procesos electorales.',
@@ -53,7 +97,7 @@ const Projects: React.FC = () => {
       featured: false
     },
     {
-      id: 4,
+      id: 8,
       title: 'Sistema de Compra de Entradas de Cine',
       description:
         'Simulación de compra de entradas de cine con backend que implementa transacciones con rollback, generación de tickets en PDF y manejo seguro de transacciones.',
@@ -64,7 +108,7 @@ const Projects: React.FC = () => {
       featured: false
     },
     {
-      id: 5,
+      id: 9,
       title: 'Sistema de Gestión Energética',
       description:
         'Aplicación web para simulación y optimización de consumo energético: dashboard de consumo, guías de ahorro, registro diario y análisis del gasto energético del usuario.',
