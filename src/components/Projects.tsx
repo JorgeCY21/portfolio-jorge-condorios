@@ -12,6 +12,51 @@ const initials = (title: string) =>
 
 const hasLivePreview = (url: string) => !!url && url !== '#'
 
+const ImageGallery: React.FC<{ images: string[]; alt: string }> = ({ images, alt }) => {
+  const [index, setIndex] = React.useState(0)
+
+  React.useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((i) => (i + 1) % images.length)
+    }, 2800)
+    return () => clearInterval(timer)
+  }, [images.length])
+
+  return (
+    <div className="relative w-full h-full">
+      {images.map((src, i) => (
+        <img
+          key={src}
+          src={src}
+          alt={`${alt} — captura ${i + 1}`}
+          loading={i === 0 ? 'eager' : 'lazy'}
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+            i === index ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+      ))}
+
+      <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1 z-10">
+        {images.map((_, i) => (
+          <button
+            key={i}
+            type="button"
+            onClick={(e) => {
+              e.preventDefault()
+              e.stopPropagation()
+              setIndex(i)
+            }}
+            aria-label={`Ver captura ${i + 1}`}
+            className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${
+              i === index ? 'bg-white w-3' : 'bg-white/50'
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  )
+}
+
 const Projects: React.FC = () => {
   const projects: Project[] = [
     {
@@ -70,6 +115,15 @@ const Projects: React.FC = () => {
       demoLink: '#',
       codeLink: 'https://github.com/JorgeCY21/Rehabi',
       note: 'Aplicación de escritorio (Unity + Kinect v2) — sin demo web por dependencia de hardware',
+      gallery: [
+        '/rehabi-1.jpg',
+        '/rehabi-2.jpg',
+        '/rehabi-3.jpg',
+        '/rehabi-4.jpg',
+        '/rehabi-5.jpg',
+        '/rehabi-6.jpg',
+        '/rehabi-7.jpg'
+      ],
       featured: false
     },
     {
@@ -142,6 +196,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured }) => {
   const showPreview = hasLivePreview(project.demoLink)
+  const [imageFailed, setImageFailed] = React.useState(false)
 
   return (
     <div className="card overflow-hidden flex flex-col">
@@ -154,6 +209,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, featured }) => {
             loading="lazy"
             tabIndex={-1}
             className="pointer-events-none absolute top-0 left-0 w-[400%] h-[400%] origin-top-left scale-[0.25] border-0"
+          />
+        ) : project.gallery && project.gallery.length > 0 ? (
+          <ImageGallery images={project.gallery} alt={project.title} />
+        ) : project.image && !imageFailed ? (
+          <img
+            src={project.image}
+            alt={project.title}
+            loading="lazy"
+            onError={() => setImageFailed(true)}
+            className="w-full h-full object-cover"
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">

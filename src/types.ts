@@ -10,6 +10,7 @@ export interface Project {
   codeLink: string;
   backendLink?: string;
   note?: string;
+  gallery?: string[];
   featured?: boolean;
 }
 
