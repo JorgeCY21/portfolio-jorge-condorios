@@ -1,6 +1,9 @@
 import React from 'react'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage()
+
   return (
     <section
       id="home"
@@ -25,44 +28,42 @@ const Hero: React.FC = () => {
           <div className="md:w-3/5">
             <span className="inline-flex items-center gap-2 mb-6 text-xs font-semibold tracking-widest uppercase text-copper-300 border border-copper-400/30 bg-copper-500/10 px-3 py-1.5 rounded-full">
               <span className="w-1.5 h-1.5 rounded-full bg-copper-400" />
-              Becario PRONABEC · 2.º puesto académico
+              {t.hero.badge}
             </span>
 
             <h1 className="font-display text-4xl md:text-6xl font-bold text-white mb-6 leading-tight tracking-tight">
-              Jorge <span className="text-copper-300">Condorios</span>
+              {t.hero.greetingName} <span className="text-copper-300">{t.hero.greetingSurname}</span>
             </h1>
 
             <h2 className="text-xl md:text-2xl text-slate-300 mb-6 font-medium">
-              Desarrollador Full Stack &amp; QA
+              {t.hero.role}
             </h2>
 
             <p className="text-slate-400 mb-10 max-w-xl leading-relaxed">
-              Estudiante de último semestre de Ingeniería de Sistemas en la Universidad Nacional de San Agustín.
-              Experiencia construyendo aplicaciones web con React, Next.js y NestJS, y en procesos de
-              aseguramiento de la calidad de software.
+              {t.hero.description}
             </p>
 
             <div className="flex flex-wrap gap-4">
               <a href="#experience" className="btn-primary">
-                Ver experiencia
+                {t.hero.ctaPrimary}
               </a>
               <a href="#contact" className="btn-secondary">
-                Contáctame
+                {t.hero.ctaSecondary}
               </a>
             </div>
 
             <div className="grid grid-cols-3 gap-6 mt-14 max-w-md">
               <div>
                 <div className="font-display text-2xl font-bold text-indigo-300">2.º</div>
-                <div className="text-sm text-slate-400">Puesto académico</div>
+                <div className="text-sm text-slate-400">{t.hero.stat1Label}</div>
               </div>
               <div>
                 <div className="font-display text-2xl font-bold text-copper-300">2+</div>
-                <div className="text-sm text-slate-400">Años de experiencia</div>
+                <div className="text-sm text-slate-400">{t.hero.stat2Label}</div>
               </div>
               <div>
                 <div className="font-display text-2xl font-bold text-emerald-300">5</div>
-                <div className="text-sm text-slate-400">Roles profesionales</div>
+                <div className="text-sm text-slate-400">{t.hero.stat3Label}</div>
               </div>
             </div>
           </div>
@@ -78,8 +79,8 @@ const Hero: React.FC = () => {
                 />
               </div>
               <div className="absolute -bottom-5 -left-5 bg-white rounded-xl px-4 py-3 shadow-xl border-l-2 border-copper-500">
-                <p className="text-slate-900 font-semibold text-sm">Ingeniería de Sistemas</p>
-                <p className="text-slate-500 text-xs">UNSA · Arequipa</p>
+                <p className="text-slate-900 font-semibold text-sm">{t.hero.photoTitle}</p>
+                <p className="text-slate-500 text-xs">{t.hero.photoSubtitle}</p>
               </div>
             </div>
           </div>

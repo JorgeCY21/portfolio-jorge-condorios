@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
-import type { ContactInfo, FormData } from '../types'
+import type { FormData } from '../types'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const Contact: React.FC = () => {
+  const { t } = useLanguage()
+  const { contact } = t
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -27,7 +31,7 @@ const Contact: React.FC = () => {
     window.location.href = mailtoUrl
   }
 
-  const contactInfo: ContactInfo[] = [
+  const contactInfo = [
     {
       icon: (
         <div className="w-11 h-11 bg-indigo-50 rounded-lg flex items-center justify-center">
@@ -36,7 +40,7 @@ const Contact: React.FC = () => {
           </svg>
         </div>
       ),
-      title: 'Email',
+      title: contact.info.emailTitle,
       value: 'jorgecondoriosy21@gmail.com',
       link: 'mailto:jorgecondoriosy21@gmail.com'
     },
@@ -48,7 +52,7 @@ const Contact: React.FC = () => {
           </svg>
         </div>
       ),
-      title: 'Teléfono',
+      title: contact.info.phoneTitle,
       value: '+51 944 400 868',
       link: 'tel:+51944400868'
     },
@@ -61,7 +65,7 @@ const Contact: React.FC = () => {
           </svg>
         </div>
       ),
-      title: 'Ubicación',
+      title: contact.info.locationTitle,
       value: 'Arequipa, Perú',
       link: '#'
     }
@@ -70,16 +74,14 @@ const Contact: React.FC = () => {
   return (
     <section id="contact" className="py-24 bg-slate-50">
       <div className="container mx-auto px-4 md:px-6">
-        <span className="section-eyebrow">Contacto</span>
-        <h2 className="section-title">Conversemos</h2>
-        <p className="section-intro">
-          ¿Tienes una oportunidad, proyecto o programa en mente? Estoy abierto a nuevos desafíos.
-        </p>
+        <span className="section-eyebrow">{contact.eyebrow}</span>
+        <h2 className="section-title">{contact.title}</h2>
+        <p className="section-intro">{contact.intro}</p>
 
         <div className="flex flex-col lg:flex-row gap-8">
           <div className="lg:w-2/5">
             <div className="card p-8 h-full">
-              <h3 className="text-lg font-semibold text-slate-900 mb-6">Información de contacto</h3>
+              <h3 className="text-lg font-semibold text-slate-900 mb-6">{contact.infoTitle}</h3>
 
               <div className="space-y-4">
                 {contactInfo.map((item, index) => (
@@ -98,7 +100,7 @@ const Contact: React.FC = () => {
               </div>
 
               <div className="mt-8 pt-6 border-t border-slate-200">
-                <h4 className="font-medium text-slate-800 mb-4 text-sm">Sígueme en</h4>
+                <h4 className="font-medium text-slate-800 mb-4 text-sm">{contact.followTitle}</h4>
                 <div className="flex gap-3">
                   <a
                     href="https://www.linkedin.com/in/jorge-enrique-condorios-yllapuma-0882122a3/"
@@ -129,13 +131,13 @@ const Contact: React.FC = () => {
 
           <div className="lg:w-3/5">
             <div className="card p-8">
-              <h3 className="text-lg font-semibold text-slate-900 mb-6">Envíame un mensaje</h3>
+              <h3 className="text-lg font-semibold text-slate-900 mb-6">{contact.formTitle}</h3>
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                   <div>
                     <label htmlFor="name" className="block text-slate-700 text-sm font-medium mb-1.5">
-                      Nombre completo
+                      {contact.nameLabel}
                     </label>
                     <input
                       type="text"
@@ -145,13 +147,13 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                       required
-                      placeholder="Tu nombre"
+                      placeholder={contact.namePlaceholder}
                     />
                   </div>
 
                   <div>
                     <label htmlFor="email" className="block text-slate-700 text-sm font-medium mb-1.5">
-                      Email
+                      {contact.emailLabel}
                     </label>
                     <input
                       type="email"
@@ -161,14 +163,14 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                       required
-                      placeholder="tu@email.com"
+                      placeholder={contact.emailPlaceholder}
                     />
                   </div>
                 </div>
 
                 <div>
                   <label htmlFor="subject" className="block text-slate-700 text-sm font-medium mb-1.5">
-                    Asunto
+                    {contact.subjectLabel}
                   </label>
                   <input
                     type="text"
@@ -178,13 +180,13 @@ const Contact: React.FC = () => {
                     onChange={handleChange}
                     className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200"
                     required
-                    placeholder="¿En qué puedo ayudarte?"
+                    placeholder={contact.subjectPlaceholder}
                   />
                 </div>
 
                 <div>
                   <label htmlFor="message" className="block text-slate-700 text-sm font-medium mb-1.5">
-                    Mensaje
+                    {contact.messageLabel}
                   </label>
                   <textarea
                     id="message"
@@ -194,15 +196,15 @@ const Contact: React.FC = () => {
                     rows={6}
                     className="w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all duration-200 resize-none"
                     required
-                    placeholder="Cuéntame más..."
+                    placeholder={contact.messagePlaceholder}
                   ></textarea>
                 </div>
 
                 <button type="submit" className="btn-primary w-full py-3.5">
-                  Enviar mensaje
+                  {contact.submitBtn}
                 </button>
                 <p className="text-xs text-slate-400 text-center -mt-2">
-                  Se abrirá tu cliente de correo con el mensaje ya redactado.
+                  {contact.submitNote}
                 </p>
               </form>
             </div>

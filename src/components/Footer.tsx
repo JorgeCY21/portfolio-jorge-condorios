@@ -1,7 +1,9 @@
 import React from 'react'
 import type { SocialLink } from '../types'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const Footer: React.FC = () => {
+  const { t } = useLanguage()
   const currentYear = new Date().getFullYear()
 
   const socialLinks: SocialLink[] = [
@@ -34,7 +36,7 @@ const Footer: React.FC = () => {
               Jorge Condorios
             </a>
             <p className="mt-1 text-slate-400 text-sm">
-              Estudiante de Ingeniería de Sistemas · Desarrollador Full Stack &amp; QA
+              {t.footer.tagline}
             </p>
           </div>
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import type { SkillCategory } from '../types'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const categoryStyles = [
   { border: 'border-t-indigo-500', text: 'text-indigo-600', bg: 'bg-indigo-50', chip: 'hover:border-indigo-300 hover:text-indigo-700' },
@@ -14,53 +14,18 @@ const icons = [
 ]
 
 const Skills: React.FC = () => {
-  const skillCategories: SkillCategory[] = [
-    {
-      title: 'Frontend',
-      skills: [
-        { name: 'React', level: 0 },
-        { name: 'Next.js', level: 0 },
-        { name: 'Vite', level: 0 },
-        { name: 'TypeScript / JavaScript', level: 0 },
-        { name: 'Tailwind CSS', level: 0 },
-        { name: 'HTML / CSS', level: 0 }
-      ]
-    },
-    {
-      title: 'Backend & Datos',
-      skills: [
-        { name: 'NestJS', level: 0 },
-        { name: 'Node.js', level: 0 },
-        { name: 'PostgreSQL', level: 0 },
-        { name: 'Prisma ORM', level: 0 },
-        { name: 'APIs REST', level: 0 },
-        { name: 'Java · Python · Kotlin', level: 0 }
-      ]
-    },
-    {
-      title: 'Cloud, QA & Herramientas',
-      skills: [
-        { name: 'AWS', level: 0 },
-        { name: 'Docker', level: 0 },
-        { name: 'Git / GitHub', level: 0 },
-        { name: 'Quality Assurance (QA)', level: 0 },
-        { name: 'Ciberseguridad y Redes', level: 0 },
-        { name: 'Spring Boot', level: 0 }
-      ]
-    }
-  ]
+  const { t } = useLanguage()
+  const { skills } = t
 
   return (
     <section id="skills" className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <span className="section-eyebrow">Stack técnico</span>
-        <h2 className="section-title">Habilidades</h2>
-        <p className="section-intro">
-          Tecnologías con las que he construido soluciones en producción, desde el frontend hasta el despliegue en la nube.
-        </p>
+        <span className="section-eyebrow">{skills.eyebrow}</span>
+        <h2 className="section-title">{skills.title}</h2>
+        <p className="section-intro">{skills.intro}</p>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-14">
-          {skillCategories.map((category, index) => {
+          {skills.categories.map((category, index) => {
             const style = categoryStyles[index % categoryStyles.length]
             return (
               <div key={index} className={`card border-t-2 ${style.border} p-6`}>
@@ -75,7 +40,7 @@ const Skills: React.FC = () => {
                 <div className="flex flex-wrap gap-2">
                   {category.skills.map((skill, skillIndex) => (
                     <span key={skillIndex} className={`chip transition-colors duration-200 ${style.chip}`}>
-                      {skill.name}
+                      {skill}
                     </span>
                   ))}
                 </div>
@@ -84,14 +49,14 @@ const Skills: React.FC = () => {
           })}
         </div>
 
-        {/* Idiomas */}
+        {/* Idiomas / Languages */}
         <div className="card border-t-2 border-t-copper-500 p-8 max-w-2xl">
-          <h3 className="text-sm font-semibold tracking-wide uppercase text-slate-700 mb-6">Idiomas</h3>
+          <h3 className="text-sm font-semibold tracking-wide uppercase text-slate-700 mb-6">{skills.languagesTitle}</h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div>
               <div className="flex justify-between items-center mb-2">
-                <span className="font-medium text-slate-800">Español</span>
-                <span className="text-xs font-semibold text-slate-500">Nativo</span>
+                <span className="font-medium text-slate-800">{skills.spanish}</span>
+                <span className="text-xs font-semibold text-slate-500">{skills.spanishLevel}</span>
               </div>
               <div className="w-full bg-slate-100 rounded-full h-1.5">
                 <div className="bg-copper-500 h-1.5 rounded-full" style={{ width: '100%' }}></div>
@@ -99,8 +64,8 @@ const Skills: React.FC = () => {
             </div>
             <div>
               <div className="flex justify-between items-center mb-2">
-                <span className="font-medium text-slate-800">Inglés</span>
-                <span className="text-xs font-semibold text-slate-500">Intermedio (B2)</span>
+                <span className="font-medium text-slate-800">{skills.english}</span>
+                <span className="text-xs font-semibold text-slate-500">{skills.englishLevel}</span>
               </div>
               <div className="w-full bg-slate-100 rounded-full h-1.5">
                 <div className="bg-indigo-500 h-1.5 rounded-full" style={{ width: '70%' }}></div>

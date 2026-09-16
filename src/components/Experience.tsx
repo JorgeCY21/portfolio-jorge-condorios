@@ -1,74 +1,17 @@
 import React from 'react'
-import type { Experience as ExperienceType } from '../types'
+import { useLanguage } from '../i18n/LanguageContext'
 
 const Experience: React.FC = () => {
-  const experiences: ExperienceType[] = [
-    {
-      id: 1,
-      role: 'Desarrollador Full Stack & QA',
-      company: 'American Statistics',
-      period: 'Enero 2026 – Agosto 2026',
-      highlights: [
-        'Desarrollo frontend con React, Next.js, Vite y TypeScript, cuidando usabilidad y rendimiento.',
-        'Construcción de servicios backend con NestJS y TypeScript, implementando APIs REST y lógica de negocio.',
-        'Diseño y gestión de bases de datos PostgreSQL mediante Prisma ORM; despliegue de soluciones en AWS.',
-        'Ejecución de pruebas funcionales (QA), identificación de incidencias y verificación de correcciones.'
-      ],
-      current: true
-    },
-    {
-      id: 2,
-      role: 'Desarrollador Frontend',
-      company: 'CEPRUNSA',
-      period: 'Enero 2025 – Abril 2025',
-      highlights: [
-        'Desarrollo de interfaces web interactivas con React y TypeScript.',
-        'Integración y consumo de APIs RESTful para la comunicación frontend-backend.',
-        'Optimización de componentes orientados a experiencia de usuario y rendimiento.'
-      ]
-    },
-    {
-      id: 3,
-      role: 'Monitor Supervisor',
-      company: 'CEPRUNSA',
-      period: 'Junio 2024 – Enero 2025',
-      highlights: [
-        'Supervisión y coordinación de monitores durante procesos de admisión virtual.',
-        'Seguimiento del cumplimiento de procedimientos y atención de incidencias en evaluaciones.',
-        'Apoyo en la resolución de incidencias y toma de decisiones operativas.'
-      ]
-    },
-    {
-      id: 4,
-      role: 'Entrevistador y Evaluador',
-      company: 'CEPRUNSA',
-      period: 'Agosto 2024 – Setiembre 2024',
-      highlights: [
-        'Participación en la convocatoria y selección de personal docente y monitores.',
-        'Evaluación de postulantes según criterios establecidos, con registro y asignación de puntajes.'
-      ]
-    },
-    {
-      id: 5,
-      role: 'Monitor',
-      company: 'CEPRUNSA',
-      period: 'Junio 2023 – Febrero 2024',
-      highlights: [
-        'Apoyo a docentes para el correcto desarrollo de clases virtuales.',
-        'Atención de consultas de postulantes y seguimiento de sesiones durante procesos de admisión.'
-      ]
-    }
-  ]
+  const { t } = useLanguage()
+  const { experience } = t
+  const experiences = experience.roles.map((r, i) => ({ ...r, id: i, current: i === 0 }))
 
   return (
     <section id="experience" className="py-24 bg-white">
       <div className="container mx-auto px-4 md:px-6">
-        <span className="section-eyebrow">Trayectoria</span>
-        <h2 className="section-title">Experiencia Profesional</h2>
-        <p className="section-intro">
-          Más de dos años combinando desarrollo de software, aseguramiento de calidad y roles de coordinación
-          en entornos con procesos y responsabilidades claras.
-        </p>
+        <span className="section-eyebrow">{experience.eyebrow}</span>
+        <h2 className="section-title">{experience.title}</h2>
+        <p className="section-intro">{experience.intro}</p>
 
         <div className="relative max-w-3xl">
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-copper-400 via-slate-200 to-slate-200" />
@@ -92,7 +35,7 @@ const Experience: React.FC = () => {
                       {exp.role} <span className="text-slate-400 font-normal font-sans">— {exp.company}</span>
                       {exp.current && (
                         <span className="ml-2 align-middle text-[10px] font-sans font-bold uppercase tracking-wide text-copper-700 bg-copper-100 px-2 py-0.5 rounded-full">
-                          Más reciente
+                          {experience.currentBadge}
                         </span>
                       )}
                     </h3>
