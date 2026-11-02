@@ -230,7 +230,7 @@ export const translations: Record<Lang, Translations> = {
         recommendation: {
           title: 'Carta de recomendación',
           description:
-            'Reconocimiento de CEPRUNSA por desempeño como desarrollador frontend en su sistema de gestión de horarios.'
+            'Reconocimiento de CEPRUNSA por desempeño como desarrollador frontend en SISPAD – Sistema de Planificación Académica Docente.'
         },
         researcher: {
           title: 'Investigador acreditado UNSA',
@@ -449,9 +449,9 @@ export const translations: Record<Lang, Translations> = {
           note: 'Repositorio privado — APK firmada disponible en la página de descarga'
         },
         {
-          title: 'CEPRUNSA — Sistema de Gestión de Horarios',
+          title: 'SISPAD — Sistema de Planificación Académica Docente · CEPRUNSA',
           description:
-            'Sistema web para optimizar la gestión de horarios del centro pre-universitario más importante de Arequipa. Mejoré la accesibilidad para docentes y monitores, recibiendo una carta de recomendación por mi contribución como desarrollador frontend.'
+            'Sistema web de planificación académica y de horarios docentes del centro pre-universitario más importante de Arequipa. Mejoré la accesibilidad para docentes y monitores, recibiendo una carta de recomendación por mi contribución como desarrollador frontend.'
         },
         {
           title: 'Pacha Wayra — Planificador de Viajes Turísticos',
@@ -555,7 +555,7 @@ export const translations: Record<Lang, Translations> = {
       highlights: {
         recommendation: {
           title: 'Letter of recommendation',
-          description: 'Recognition from CEPRUNSA for my performance as frontend developer on their scheduling management system.'
+          description: 'Recognition from CEPRUNSA for my performance as frontend developer on SISPAD – Sistema de Planificación Académica Docente (Teaching Staff Academic Planning System).'
         },
         researcher: {
           title: 'Accredited researcher — UNSA',
@@ -774,9 +774,9 @@ export const translations: Record<Lang, Translations> = {
           note: 'Private repository — signed APK available on the download page'
         },
         {
-          title: 'CEPRUNSA — Scheduling Management System',
+          title: 'SISPAD — Teaching Staff Academic Planning System · CEPRUNSA',
           description:
-            'Web system to streamline schedule management at the largest pre-university center in Arequipa. Improved accessibility for teachers and monitors, earning a letter of recommendation for my contribution as frontend developer.'
+            'Web system for academic and teaching-schedule planning at the largest pre-university center in Arequipa. Improved accessibility for teachers and monitors, earning a letter of recommendation for my contribution as frontend developer.'
         },
         {
           title: 'Pacha Wayra — Tourism Trip Planner',
