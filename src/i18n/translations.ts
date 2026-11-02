@@ -114,6 +114,19 @@ export interface ProjectTextT {
   note?: string
 }
 
+export interface FlagshipT {
+  badge: string
+  title: string
+  subtitle: string
+  role: string
+  description: string
+  stats: { value: string; label: string }[]
+  pillars: { title: string; text: string }[]
+  stackLabel: string
+  visit: string
+  note: string
+}
+
 export interface ProjectsT {
   eyebrow: string
   title: string
@@ -123,6 +136,7 @@ export interface ProjectsT {
   code: string
   frontend: string
   backend: string
+  flagship: FlagshipT
   items: ProjectTextT[]
 }
 
@@ -209,7 +223,7 @@ export const translations: Record<Lang, Translations> = {
       statProjectsLabel: 'Proyectos',
       paragraphs: [
         'Estudiante del último semestre de Ingeniería de Sistemas en la Universidad Nacional de San Agustín de Arequipa, donde ocupo el 2.º puesto académico de la carrera y soy becario PRONABEC (Beca Permanencia) por desempeño y continuidad de estudios.',
-        'Cuento con experiencia profesional en desarrollo de software y aseguramiento de la calidad, participando en el análisis, desarrollo, integración, pruebas y mejora de soluciones tecnológicas junto a equipos multidisciplinarios, en proyectos de desarrollo web, APIs, bases de datos y servicios en la nube.',
+        'Cuento con experiencia profesional en desarrollo de software y aseguramiento de la calidad, participando en el análisis, desarrollo, integración, pruebas y mejora de soluciones tecnológicas junto a equipos multidisciplinarios, en proyectos de desarrollo web, aplicaciones móviles Android, APIs, bases de datos y servicios en la nube.',
         'Investigador acreditado por la UNSA mediante resolución institucional. Me caracterizo por mi capacidad de aprendizaje, pensamiento analítico, adaptación y orientación a la mejora continua, y busco seguir desarrollándome en organizaciones de alto desempeño.'
       ],
       highlights: {
@@ -293,11 +307,12 @@ export const translations: Record<Lang, Translations> = {
     skills: {
       eyebrow: 'Stack técnico',
       title: 'Habilidades',
-      intro: 'Tecnologías con las que he construido soluciones en producción, desde el frontend hasta el despliegue en la nube.',
+      intro: 'Tecnologías con las que he construido soluciones en producción, desde el frontend y apps Android hasta las pruebas automatizadas y el despliegue en la nube con dominio propio.',
       categories: [
-        { title: 'Frontend', skills: ['React', 'Next.js', 'Vite', 'TypeScript / JavaScript', 'Tailwind CSS', 'HTML / CSS'] },
-        { title: 'Backend & Datos', skills: ['NestJS', 'Node.js', 'PostgreSQL', 'Prisma ORM', 'APIs REST', 'Java · Python · Kotlin'] },
-        { title: 'Cloud, QA & Herramientas', skills: ['AWS', 'Docker', 'Git / GitHub', 'Quality Assurance (QA)', 'Ciberseguridad y Redes', 'Spring Boot'] }
+        { title: 'Frontend', skills: ['React', 'Next.js', 'Vite', 'TypeScript / JavaScript', 'Tailwind CSS', 'HTML / CSS', 'TanStack Query'] },
+        { title: 'Backend & Datos', skills: ['NestJS', 'Node.js', 'Spring Boot', 'APIs REST', 'Swagger / OpenAPI', 'PostgreSQL', 'Prisma ORM', 'SQLite / Cloudflare D1', 'Java · Python'] },
+        { title: 'Móvil', skills: ['Kotlin', 'Android SDK', 'Android Studio · Gradle', 'WorkManager', 'Widgets de inicio', 'APK firmadas y distribución'] },
+        { title: 'Cloud, DevOps & Testing', skills: ['Cloudflare (Workers · Pages · D1)', 'AWS', 'Docker', 'Dominios y DNS', 'CI/CD', 'Git / GitHub', 'Jest · Vitest · Supertest', 'Testing Library', 'Quality Assurance (QA)', 'Ciberseguridad y Redes'] }
       ],
       languagesTitle: 'Idiomas',
       spanish: 'Español',
@@ -380,6 +395,41 @@ export const translations: Record<Lang, Translations> = {
       code: 'Código',
       frontend: 'Frontend',
       backend: 'Backend',
+      flagship: {
+        badge: 'Proyecto insignia',
+        title: 'Maipi',
+        subtitle: 'Plataforma adaptativa de preparación preuniversitaria',
+        role: 'Fundador · Producto propio',
+        description:
+          'Sistema a gran escala que diseñé, desarrollé y opero de punta a punta, con estudiantes reales que se preparan para el examen de admisión de la UNSA. Backend modular en NestJS y una base de datos PostgreSQL modelada con Prisma ORM.',
+        stats: [
+          { value: '20+', label: 'Módulos de dominio' },
+          { value: '53', label: 'Modelos de datos' },
+          { value: '10+', label: 'Cursos de admisión' },
+          { value: 'En producción', label: 'Con usuarios reales' }
+        ],
+        pillars: [
+          {
+            title: 'Motor adaptativo',
+            text: 'Diagnóstico inicial, cálculo de dominio por subtema, priorización de lo que conviene estudiar, refuerzo automático de temas débiles y plan de estudio personalizado.'
+          },
+          {
+            title: 'Contenido y evaluaciones',
+            text: 'Banco de preguntas tipo admisión con explicaciones paso a paso (Matemáticas, Física, Química, Biología, Comprensión Lectora y más) y simulacros cronometrados con exámenes reales resueltos.'
+          },
+          {
+            title: 'Producto completo',
+            text: 'Gamificación con misiones, notificaciones Web Push y tareas programadas, reportes PDF para padres, analítica, plan Premium, panel de administración, reclamos y login con Google OAuth/JWT.'
+          },
+          {
+            title: 'Seguridad y operación',
+            text: 'Helmet, rate limiting, validación de datos, respaldos cifrados, migraciones en producción, API documentada con Swagger y videos de marketing generados por código (Remotion).'
+          }
+        ],
+        stackLabel: 'Stack',
+        visit: 'Visitar maipi.app',
+        note: 'Código privado — producto comercial'
+      },
       items: [
         {
           title: 'SmartMine AI — Simulación y Optimización de Flotas Mineras con IA',
@@ -391,6 +441,12 @@ export const translations: Record<Lang, Translations> = {
           description:
             'Aplicación web para el seguimiento académico de estudiantes de la UNSA, con usuarios reales activos. Carga automáticamente la malla curricular al seleccionar carrera y año de ingreso: dashboard, notas por curso, apuntes, gráficos de rendimiento, simulador de notas, referidos, reportes e importación de libreta.',
           note: 'Repositorio privado — disponible bajo solicitud'
+        },
+        {
+          title: 'Pasapalabra Focolares — Una palabra para cada día',
+          description:
+            'App Android en Kotlin que muestra cada día la frase y reflexión del canal público de Telegram, en un widget de inicio y sobre el fondo de la pantalla de bloqueo. Backend serverless en Cloudflare Workers + D1 que lee Telegram cada hora, extrae fecha, frase y reflexión, y conserva correcciones; la app descarga lecturas anticipadas, funciona sin conexión y se actualiza sola después de medianoche.',
+          note: 'Repositorio privado — APK firmada disponible en la página de descarga'
         },
         {
           title: 'CEPRUNSA — Sistema de Gestión de Horarios',
@@ -493,7 +549,7 @@ export const translations: Record<Lang, Translations> = {
       statProjectsLabel: 'Projects',
       paragraphs: [
         'Final-semester Systems Engineering student at Universidad Nacional de San Agustín de Arequipa, where I rank 2nd academically in my class and hold a PRONABEC scholarship (Beca Permanencia) for academic performance and continuity.',
-        'I have professional experience in software development and quality assurance, taking part in the analysis, development, integration, testing and improvement of technology solutions alongside multidisciplinary teams, on projects involving web development, APIs, databases and cloud services.',
+        'I have professional experience in software development and quality assurance, taking part in the analysis, development, integration, testing and improvement of technology solutions alongside multidisciplinary teams, on projects involving web development, Android mobile apps, APIs, databases and cloud services.',
         'Accredited researcher at UNSA through institutional resolution. I bring a fast learning curve, analytical thinking, adaptability and a continuous-improvement mindset, and I am looking to keep growing within high-performance organizations.'
       ],
       highlights: {
@@ -576,11 +632,12 @@ export const translations: Record<Lang, Translations> = {
     skills: {
       eyebrow: 'Technical stack',
       title: 'Skills',
-      intro: 'Technologies I’ve used to build production solutions, from the frontend all the way to cloud deployment.',
+      intro: 'Technologies I’ve used to build production solutions, from the frontend and Android apps to automated testing and cloud deployment on custom domains.',
       categories: [
-        { title: 'Frontend', skills: ['React', 'Next.js', 'Vite', 'TypeScript / JavaScript', 'Tailwind CSS', 'HTML / CSS'] },
-        { title: 'Backend & Data', skills: ['NestJS', 'Node.js', 'PostgreSQL', 'Prisma ORM', 'REST APIs', 'Java · Python · Kotlin'] },
-        { title: 'Cloud, QA & Tools', skills: ['AWS', 'Docker', 'Git / GitHub', 'Quality Assurance (QA)', 'Cybersecurity & Networking', 'Spring Boot'] }
+        { title: 'Frontend', skills: ['React', 'Next.js', 'Vite', 'TypeScript / JavaScript', 'Tailwind CSS', 'HTML / CSS', 'TanStack Query'] },
+        { title: 'Backend & Data', skills: ['NestJS', 'Node.js', 'Spring Boot', 'REST APIs', 'Swagger / OpenAPI', 'PostgreSQL', 'Prisma ORM', 'SQLite / Cloudflare D1', 'Java · Python'] },
+        { title: 'Mobile', skills: ['Kotlin', 'Android SDK', 'Android Studio · Gradle', 'WorkManager', 'Home-screen widgets', 'Signed APKs & distribution'] },
+        { title: 'Cloud, DevOps & Testing', skills: ['Cloudflare (Workers · Pages · D1)', 'AWS', 'Docker', 'Domains & DNS', 'CI/CD', 'Git / GitHub', 'Jest · Vitest · Supertest', 'Testing Library', 'Quality Assurance (QA)', 'Cybersecurity & Networking'] }
       ],
       languagesTitle: 'Languages',
       spanish: 'Spanish',
@@ -663,6 +720,41 @@ export const translations: Record<Lang, Translations> = {
       code: 'Code',
       frontend: 'Frontend',
       backend: 'Backend',
+      flagship: {
+        badge: 'Flagship project',
+        title: 'Maipi',
+        subtitle: 'Adaptive university-admission prep platform',
+        role: 'Founder · Own product',
+        description:
+          'A large-scale system I designed, built and run end to end, used by real students preparing for the UNSA admission exam. Modular NestJS backend and a PostgreSQL database modeled with Prisma ORM.',
+        stats: [
+          { value: '20+', label: 'Domain modules' },
+          { value: '53', label: 'Data models' },
+          { value: '10+', label: 'Admission courses' },
+          { value: 'Live', label: 'With real users' }
+        ],
+        pillars: [
+          {
+            title: 'Adaptive engine',
+            text: 'Initial diagnostic, per-subtopic mastery scoring, prioritization of what to study next, automatic reinforcement of weak topics and a personalized study plan.'
+          },
+          {
+            title: 'Content & assessments',
+            text: 'Admission-style question bank with step-by-step explanations (Math, Physics, Chemistry, Biology, Reading Comprehension and more) and timed mock exams with real solved tests.'
+          },
+          {
+            title: 'Full product',
+            text: 'Gamified missions, Web Push notifications and scheduled jobs, PDF reports for parents, analytics, Premium plan, admin panel, complaints system and Google OAuth/JWT login.'
+          },
+          {
+            title: 'Security & operations',
+            text: 'Helmet, rate limiting, data validation, encrypted backups, production database migrations, Swagger API docs and code-generated marketing videos (Remotion).'
+          }
+        ],
+        stackLabel: 'Stack',
+        visit: 'Visit maipi.app',
+        note: 'Private code — commercial product'
+      },
       items: [
         {
           title: 'SmartMine AI — Mining Fleet Simulation & Optimization with AI',
@@ -674,6 +766,12 @@ export const translations: Record<Lang, Translations> = {
           description:
             'Web app for academic tracking of UNSA students, with real active users. Automatically loads the curriculum plan once you select your major and entry year: dashboard, grades per course, notes, performance charts, grade simulator, referrals, reports and gradebook import.',
           note: 'Private repository — available on request'
+        },
+        {
+          title: 'Pasapalabra Focolares — A Word for Every Day',
+          description:
+            'Kotlin Android app that shows the daily phrase and reflection from a public Telegram channel, on a home-screen widget and over the lock-screen wallpaper. Serverless backend on Cloudflare Workers + D1 that reads Telegram hourly, extracts date, phrase and reflection, and keeps edits; the app prefetches readings, works offline and refreshes itself after midnight.',
+          note: 'Private repository — signed APK available on the download page'
         },
         {
           title: 'CEPRUNSA — Scheduling Management System',

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useLanguage } from '../i18n/LanguageContext'
+import type { FlagshipT } from '../i18n/translations'
 
 interface ProjectData {
   image: string
@@ -9,6 +10,11 @@ interface ProjectData {
   backendLink?: string
   gallery?: string[]
   featured?: boolean
+}
+
+const flagshipData = {
+  url: 'https://maipi.app',
+  technologies: ['React 19', 'Vite', 'TypeScript', 'Tailwind CSS', 'NestJS', 'Node.js', 'PostgreSQL', 'Prisma', 'Google OAuth / JWT', 'Web Push', 'Swagger', 'Remotion']
 }
 
 const projectsData: ProjectData[] = [
@@ -26,6 +32,13 @@ const projectsData: ProjectData[] = [
     demoLink: 'https://apruebo-pe.vercel.app/',
     codeLink: 'https://github.com/JorgeCY21/AprueboPe',
     featured: true
+  },
+  {
+    image: '/pasapalabra-project.jpg',
+    technologies: ['Kotlin', 'Android', 'Cloudflare Workers', 'D1 (SQLite)', 'Node.js', 'Telegram'],
+    demoLink: 'https://pasapalabra-focolares.pages.dev',
+    codeLink: 'https://github.com/JorgeCY21/pasapalabra',
+    featured: false
   },
   {
     image: '/ceprunsa-project.jpg',
@@ -165,6 +178,8 @@ const Projects: React.FC = () => {
         <h2 className="section-title">{projects.title}</h2>
         <p className="section-intro">{projects.intro}</p>
 
+        <FlagshipProject labels={projects.flagship} />
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.id} project={project} featured labels={projects} />
@@ -180,6 +195,98 @@ const Projects: React.FC = () => {
     </section>
   )
 }
+
+const FlagshipProject: React.FC<{ labels: FlagshipT }> = ({ labels }) => (
+  <article className="relative mb-10 overflow-hidden rounded-2xl border border-slate-200 bg-slate-900 text-white shadow-xl">
+    <div className="pointer-events-none absolute -top-32 -right-32 w-96 h-96 rounded-full bg-indigo-600/30 blur-3xl" />
+    <div className="pointer-events-none absolute -bottom-40 -left-24 w-96 h-96 rounded-full bg-copper-500/20 blur-3xl" />
+
+    <div className="relative grid grid-cols-1 lg:grid-cols-5 gap-8 p-6 md:p-10">
+      <div className="lg:col-span-3 flex flex-col">
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <span className="text-xs font-semibold text-white bg-copper-500 px-2.5 py-1 rounded-full">
+            {labels.badge}
+          </span>
+          <span className="text-xs font-medium text-slate-300 border border-white/15 px-2.5 py-1 rounded-full">
+            {labels.role}
+          </span>
+        </div>
+
+        <h3 className="font-display text-4xl md:text-5xl font-bold tracking-tight">{labels.title}</h3>
+        <p className="mt-2 text-lg text-indigo-200">{labels.subtitle}</p>
+        <p className="mt-4 text-slate-300 leading-relaxed">{labels.description}</p>
+
+        <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
+          {labels.stats.map((stat) => (
+            <div key={stat.label} className="rounded-xl bg-white/5 border border-white/10 px-3 py-3">
+              <div className="font-display text-xl font-bold text-white">{stat.value}</div>
+              <div className="text-xs text-slate-400 mt-0.5">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div className="lg:col-span-2 flex flex-col">
+        <a
+          href={flagshipData.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group relative block h-56 lg:h-full min-h-[14rem] overflow-hidden rounded-xl border border-white/10 bg-white shadow-lg"
+        >
+          <div className="flex items-center gap-1.5 px-3 h-7 bg-slate-100 border-b border-slate-200">
+            <span className="w-2 h-2 rounded-full bg-red-400" />
+            <span className="w-2 h-2 rounded-full bg-amber-400" />
+            <span className="w-2 h-2 rounded-full bg-emerald-400" />
+            <span className="ml-2 text-[11px] text-slate-500">maipi.app</span>
+          </div>
+          <div className="relative h-[calc(100%-1.75rem)] overflow-hidden">
+            <iframe
+              src={flagshipData.url}
+              title={labels.title}
+              loading="lazy"
+              tabIndex={-1}
+              className="pointer-events-none absolute top-0 left-0 w-[250%] h-[250%] origin-top-left scale-[0.4] border-0"
+            />
+          </div>
+          <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/10 transition-colors duration-200" />
+        </a>
+      </div>
+    </div>
+
+    <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-px bg-white/10 border-t border-white/10">
+      {labels.pillars.map((pillar) => (
+        <div key={pillar.title} className="bg-slate-900 p-6">
+          <h4 className="text-sm font-semibold text-copper-400 mb-2">{pillar.title}</h4>
+          <p className="text-sm text-slate-400 leading-relaxed">{pillar.text}</p>
+        </div>
+      ))}
+    </div>
+
+    <div className="relative flex flex-col md:flex-row md:items-center gap-4 justify-between p-6 md:px-10 border-t border-white/10">
+      <div className="flex flex-wrap gap-2">
+        {flagshipData.technologies.map((tech) => (
+          <span key={tech} className="text-xs font-medium text-slate-200 bg-white/10 px-2.5 py-1 rounded-md">
+            {tech}
+          </span>
+        ))}
+      </div>
+      <div className="flex flex-col items-start md:items-end gap-1 shrink-0">
+        <a
+          href={flagshipData.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-medium py-2.5 px-5 rounded-lg transition-colors duration-200 inline-flex items-center gap-1.5"
+        >
+          {labels.visit}
+          <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
+        <span className="text-xs text-slate-500 italic">{labels.note}</span>
+      </div>
+    </div>
+  </article>
+)
 
 interface ProjectCardProps {
   project: MergedProject
